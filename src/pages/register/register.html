@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+      <ion-buttons start >
+          <button ion-button icon-only menuToggle>
+              <ion-icon name="menu" ></ion-icon>
+          </button>
+      </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit)="onSignup(f)">
+      <ion-list>
+        <ion-item>
+          <ion-label fixed>Name</ion-label>
+          <ion-input type="text" ngModel name="name" placeholder="Jon Doe" required>Name</ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label fixed>Email</ion-label>
+          <ion-input type="email" ngModel name="email" placeholder="jondoe@example.com"pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>Email</ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label fixed>Phone</ion-label>
+          <ion-input type="tel" ngModel name="phone" placeholder="5555555555" pattern="^((\\+91-?)|0)?[0-9]{10}$" optional>Phone</ion-input>
+        </ion-item>
+      <ion-item>
+        <ion-label fixed>Username</ion-label>
+        <ion-input type="text" ngModel name="username" [minlength]="6" [maxlength]="12" placeholder="6 tp 12 characters" required>Username</ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" ngModel name="password" [minlength]="6" placeholder="Min length of 6" required>Password</ion-input>
+      </ion-item>
+      <button color="danger" ion-button block type="submit" [disabled]="!f.valid">Sign Up</button>
+    </ion-list>
+  </form>
+</ion-content>
